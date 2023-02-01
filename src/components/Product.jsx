@@ -87,8 +87,9 @@ function Product() {
                           onChange={onOptionChange}
                           className="radiob"
                         />
-                        One time purchase
+                        &nbsp;One time purchase
                       </label>
+                      <br />
                       <label className="lbl">
                         <input
                           type="radio"
@@ -96,8 +97,9 @@ function Product() {
                           onChange={onOptionChange}
                           className="radiob"
                         />
-                        Subscribe & Save
+                        &nbsp;Subscribe & Save 10%
                       </label>
+                      <br />
                       <button className="subscribebtn">
                         {subscribe ? "Subscribe" : "Add to bag"}
                       </button>
