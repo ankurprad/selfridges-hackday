@@ -24,6 +24,8 @@ function Product() {
     console.log("submit handle", subscribe);
     if (subscribe) {
       navigate("/subscribe");
+    } else {
+      alert("Product is added to the bag");
     }
   };
 
