@@ -3,6 +3,8 @@ import Navbar from "react-bootstrap/Navbar";
 import "./Product.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 function Product() {
   const products = [
     {
@@ -46,13 +48,15 @@ function Product() {
           Sign up to Selfridges+ for free deliveries
         </div>
         <hr className="hr1" />
-        <img
-          alt=""
-          src="https://www.selfridges.com/GB/en/features/dam/en_gb/content/images/selfridges-logo.svg"
-          width="145"
-          height="25"
-          className="brand-img"
-        />
+        <Link to="/">
+          <img
+            alt=""
+            src="https://www.selfridges.com/GB/en/features/dam/en_gb/content/images/selfridges-logo.svg"
+            width="145"
+            height="25"
+            className="brand-img"
+          />
+        </Link>
         <hr className="hr1" />
         <div className="productcontainer">
           {products.map((product) => {

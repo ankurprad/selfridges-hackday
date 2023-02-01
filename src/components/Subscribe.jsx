@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 export default function Subscribe() {
   const [email, setEmail] = useState("");
   const [frequency, setFrequency] = useState("");
@@ -50,13 +52,15 @@ export default function Subscribe() {
         Sign up to Selfridges+ for free deliveries
       </div>
       <hr className="hr1" />
-      <img
-        alt=""
-        src="https://www.selfridges.com/GB/en/features/dam/en_gb/content/images/selfridges-logo.svg"
-        width="145"
-        height="25"
-        className="brand-img"
-      />
+      <Link to="/">
+        <img
+          alt=""
+          src="https://www.selfridges.com/GB/en/features/dam/en_gb/content/images/selfridges-logo.svg"
+          width="145"
+          height="25"
+          className="brand-img"
+        />
+      </Link>
       <hr className="hr1" />
       <form onSubmit={handleSubmit} className="subform">
         <div className="form-field">
