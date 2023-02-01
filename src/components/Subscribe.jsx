@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export default function Subscribe() {
   const [email, setEmail] = useState("");
   const [frequency, setFrequency] = useState("");
   const [address, setAddress] = useState("");
   const [payment, setPayment] = useState("");
+  const navigate = useNavigate();
   const handleChange = () => {
     console.log("email handle");
     setEmail();
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("post subscription");
-    axios.post(
+    const response = await axios.post(
       "https://py99o0nskf.execute-api.eu-west-1.amazonaws.com/prod/subscriptions",
       {
         skuId: "123",
@@ -37,6 +39,10 @@ export default function Subscribe() {
         },
       }
     );
+    console.log(response.data);
+    if (response.status === 201) {
+      navigate("/subscribeconfirm");
+    }
   };
   return (
     <>
@@ -68,9 +74,9 @@ export default function Subscribe() {
           <label>
             Frequency &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
             <select>
-              <option value="fruit">Every Month</option>
-              <option value="vegetable">Every 2 Months</option>
-              <option value="meat">Every 3 Months</option>
+              <option value="1">Every Month</option>
+              <option value="2">Every 2 Months</option>
+              <option value="3">Every 3 Months</option>
             </select>
           </label>
         </div>
