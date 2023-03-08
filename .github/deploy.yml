@@ -1,0 +1,28 @@
+name: Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: Choose the environment
+        options:
+          - development
+          - test
+          - preproduction
+          - performance
+          - production
+        required: true
+      version:
+        description: Enter the version
+        type: string
+
+jobs:
+  deployment:
+    name: Deployment ( ${{ github.event.inputs.environment }} )
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
